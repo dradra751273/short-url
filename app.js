@@ -20,8 +20,7 @@ app.use(express.static('./'))
 app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 
-
-// Start server
+// 3) Start server
 app.listen(PORT, () => {
   console.log(`App is running on http://localhost:${PORT}`)
 })
