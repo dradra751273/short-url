@@ -1,0 +1,21 @@
+.container {
+  max-width: 30rem;
+}
+
+.container h1 {
+  font-weight: 600;
+}
+
+.img-container img {
+  max-width: 12.5rem;
+  margin: 2rem auto;
+}
+
+.input-label {
+  font-weight: 600;
+  color: green;
+}
+
+.btn-container button {
+  width: 50%;
+}
