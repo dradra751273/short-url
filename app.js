@@ -3,7 +3,7 @@ const exphbs = require('express-handlebars')
 const methodOverride = require('method-override')
 
 // Customized setting
-
+require('./config/mongoose')
 
 // PORT
 const PORT = process.env.PORT || 3000
