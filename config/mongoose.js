@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const password = 'water1988'
+const password = ''
 const DB_URI =
   process.env.MONGODB_URI ||
   `mongodb+srv://fushaowei:${password}@cluster0.plcfxth.mongodb.net/url_container?retryWrites=true&w=majority`

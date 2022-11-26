@@ -1,8 +1,6 @@
 const checkURL = require('url').URL
 
-
 class urlErrorHandler {
-
   constructor(inputUrl, model, response) {
     this.inputUrl = inputUrl
     this.model = model
