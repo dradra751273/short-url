@@ -1,7 +1,6 @@
 <div class="container">
   <!-- header -->
-  <h1 class="text-center mt-5 mb-0">URL
-    Shortener</h1>
+  <h1 class="text-center mt-5 mb-0">URL Shortener</h1>
 
   <!-- image -->
   <div class="img-container d-flex justify-content-center ">
@@ -10,16 +9,60 @@
       class="rounded p-4 d-block" alt="url-image">
   </div>
 
-  <!-- form -->
+  <!-- Form -->
   <form action="/" method="post">
-    <label for="inputURL" class="form-label input-label">Original
-      URL</label>
-    <input type="text" class="form-control" name="inputURL" id="inputURL"
-           placeholder="input URL here">
+
+    <!-- (1)Message and input-->
+    {{#if errData}}
+
+      <label for="inputUrl" class="form-label input-label-err">
+        {{errData.errMsg}}
+      </label>
+      {{#if errData.duplicatedUrl}}
+        <label for="inputUrl" class="form-label input-label-valid">
+          Shorten URL: {{errData.duplicatedUrl}}
+        </label>
+        <button
+          class="btn btn-sm btn-outline-secondary btn-copy ms-3"
+          data-copy={{errData.duplicatedUrl}}
+        >
+          <ion-icon name="copy"></ion-icon>
+        </button>
+      {{/if}}
+      <fieldset disabled>
+        <input
+          type="text"
+          id="inputUrl"
+          class="form-control"
+          name="inputUrl"
+          value="{{errData.inputUrl}}"
+        />
+      </fieldset>
+    {{else}}
+      <label for="inputUrl" class="form-label input-label-valid">
+        Original URL
+      </label>
+      <input
+        type="text"
+        id="inputUrl"
+        class="form-control"
+        name="inputUrl"
+        placeholder="input URL here"
+      />
+    {{/if}}
+
+    <!-- (3)Submit btn -->
     <div class="d-flex justify-content-center mt-3 btn-container">
-      <button class="btn btn-outline-primary" type="submit">
-        Shorten
-      </button>
+      {{#if errData}}
+        <a href="/" class="btn btn-outline-danger">
+          Try again!
+        </a>
+      {{else}}
+        <button class="btn btn-outline-success btn-shorten" type="submit">
+          Shorten
+        </button>
+      {{/if}}
+
     </div>
   </form>
 </div>

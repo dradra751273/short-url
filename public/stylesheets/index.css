@@ -11,11 +11,16 @@
   margin: 2rem auto;
 }
 
-.input-label {
+.input-label-valid {
   font-weight: 600;
   color: green;
 }
 
-.btn-container button {
+.input-label-err {
+  font-weight: 600;
+  color: red;
+}
+
+.btn-container .btn-shorten {
   width: 50%;
 }
