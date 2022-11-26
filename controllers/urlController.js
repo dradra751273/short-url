@@ -29,8 +29,7 @@ exports.createShortURL = async (req, res, next) => {
     await URL.create({
       'oriURL': inputUrl, 'shortenURL': shortURLGenerator()
     })
-    const successData = await URL.findOne({oriURL: inputDoc['inputURL']}).lean()
-    console.log(successData)
+    const successData = await URL.findOne({oriURL: inputUrl}).lean()
     res.render('success', {successData})
   }
 }

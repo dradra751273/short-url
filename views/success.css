@@ -1,0 +1,18 @@
+
+.link-container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.shorten-link {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: green;
+}
+
+.btn-group ion-icon {
+  font-size: 1.25rem;
+  text-align: center;
+}

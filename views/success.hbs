@@ -1,0 +1,34 @@
+<div class="container">
+  <!-- header -->
+  <h1 class="text-center mt-5 mb-0">URL Shortener</h1>
+
+  <!-- image -->
+  <div class="img-container d-flex justify-content-center ">
+    <img
+      src="https://assets-lighthouse.alphacamp.co/uploads/image/file/16716/ExportedContentImage_00.png"
+      class="rounded p-4 d-block" alt="url-image">
+  </div>
+
+  <!--Link info-->
+  <h2>Success!Please use this link:</h2>
+  <div class="link-container">
+    <a href="{{successData.oriURL}}" class="text-success shorten-link">
+      {{successData.shortenURL}}
+    </a>
+    <div class="btn-group">
+      <button
+        class="btn btn-sm btn-outline-secondary btn-copy ms-3"
+        data-copy={{successData.shortenURL}}
+      >
+        <ion-icon name="copy"></ion-icon>
+      </button>
+      <a href="/delete" class="btn btn-sm btn-outline-danger ms-1">
+        <ion-icon name="trash"></ion-icon>
+      </a>
+      <a href="/" class="btn btn-sm btn-outline-primary ms-1">
+        <ion-icon name="home"></ion-icon>
+      </a>
+    </div>
+  </div>
+
+</div>

@@ -52,7 +52,6 @@ class urlErrorHandler {
       isDuplicated = true
     }
 
-    console.log(dupUrls[0])
     if (isDuplicated && !this.isEmptyUrl()) {
       errData = {
         inputUrl: this.inputUrl,
