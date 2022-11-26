@@ -1,3 +1,4 @@
+const URL = require('../models/urlModel')
 const sample = (array) => {
   const index = Math.floor(Math.random() * array.length)
   return array[index]
@@ -17,4 +18,12 @@ exports.shortURLGenerator = () => {
     hashcode += sample(collection)
   }
   return `http://localhost:3000/${hashcode}`
+}
+
+
+exports.searchDocsByShorthand = async (model, shorthand) => {
+  const docs = await model.find().lean()
+  return docs.find((doc) => {
+    return doc.shortenURL.includes(`/${shorthand}`)
+  })
 }

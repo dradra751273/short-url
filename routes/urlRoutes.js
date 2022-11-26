@@ -8,6 +8,9 @@ router.route('/')
   .get(urlController.showHomePage)
   .post(urlController.createShortURL)
 
+router.route('/:shorthand')
+  .get(urlController.redirectToWebsite)
+
 router.route('/delete/:shorthand')
   .get(urlController.deleteShortURL)
 

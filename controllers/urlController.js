@@ -1,6 +1,6 @@
 const URL = require('../models/urlModel')
 const urlErrorHandler = require('../utils/urlErrorHandler')
-const {shortURLGenerator} = require('../utils/urlUtils')
+const {shortURLGenerator, searchDocsByShorthand} = require('../utils/urlUtils')
 
 
 exports.showHomePage = async (req, res) => {
@@ -40,11 +40,19 @@ exports.createShortURL = async (req, res, next) => {
 }
 
 
-exports.deleteShortURL = async (req, res, next) => {
-  const docs = await URL.find().lean()
-  const delDoc = docs.filter((doc) => {
-    return doc.shortenURL.includes(`/${req.params['shorthand']}`)
-  })[0]
-  await URL.findByIdAndDelete(delDoc._id)
+exports.deleteShortURL = async (req, res) => {
+  const doc = searchDocsByShorthand(URL, req.params['shorthand'])
+  await URL.findByIdAndDelete(doc._id)
   res.redirect('/')
+}
+
+
+exports.redirectToWebsite = async (req, res) => {
+  const doc = await searchDocsByShorthand(URL, req.params['shorthand'])
+  if (doc) {
+    res.redirect(doc.oriURL)
+  } else {
+    res.render('error')
+  }
+
 }
