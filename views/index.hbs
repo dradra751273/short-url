@@ -1,3 +1,6 @@
+<!--alert placeholder-->
+<div id="liveAlertPlaceholder"></div>
+
 <div class="container">
   <!-- header -->
   <h1 class="text-center mt-5 mb-0">URL Shortener</h1>
@@ -23,7 +26,7 @@
           Shorten URL: {{errData.duplicatedUrl}}
         </label>
         <button
-          class="btn btn-sm btn-outline-secondary btn-copy ms-3"
+          class="btn btn-sm btn-outline-secondary ms-3 btn-copy"
           data-copy={{errData.duplicatedUrl}}
         >
           <ion-icon name="copy"></ion-icon>
