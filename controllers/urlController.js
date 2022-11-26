@@ -42,7 +42,6 @@ exports.createShortURL = async (req, res, next) => {
 
 exports.deleteShortURL = async (req, res) => {
   const doc = await searchDocsByShorthand(URL, req.params['shorthand'])
-  console.log(doc)
   await URL.findByIdAndDelete(doc._id)
   res.redirect('/')
 }
