@@ -26,10 +26,25 @@ exports.createShortURL = async (req, res, next) => {
 
   // ★Create short URL★
   if (errData === null) {
+    const shortenURL = shortURLGenerator()
+
     await URL.create({
-      'oriURL': inputUrl, 'shortenURL': shortURLGenerator()
+      'oriURL': inputUrl, 'shortenURL': shortenURL
     })
-    const successData = await URL.findOne({oriURL: inputUrl}).lean()
+
+    const successData = {
+      inputUrl, shortenURL, param: shortenURL.split('/').at(-1)
+    }
     res.render('success', {successData})
   }
+}
+
+
+exports.deleteShortURL = async (req, res, next) => {
+  const docs = await URL.find().lean()
+  const delDoc = docs.filter((doc) => {
+    return doc.shortenURL.includes(`/${req.params['shorthand']}`)
+  })[0]
+  await URL.findByIdAndDelete(delDoc._id)
+  res.redirect('/')
 }

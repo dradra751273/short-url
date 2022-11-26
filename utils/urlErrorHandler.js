@@ -45,10 +45,12 @@ class urlErrorHandler {
     let errData = null
     let isDuplicated = false
     let shortenUrl = null
+    let param = null
 
     const dupUrls = await this.duplicatedUrls()
     if (dupUrls.length !== 0) {
       shortenUrl = dupUrls[0].shortenURL
+      param = shortenUrl.split('/').at(-1)
       isDuplicated = true
     }
 
@@ -56,6 +58,7 @@ class urlErrorHandler {
       errData = {
         inputUrl: this.inputUrl,
         duplicatedUrl: shortenUrl,
+        param: param,
         errMsg: 'URL already exists in Database!'
       }
       this.response.render('index', {errData})
