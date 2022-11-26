@@ -32,7 +32,7 @@ mongodb connected!
 ```
 # Packages
 - Express: 4.18.2,
-- Express-Handlebars": 6.0.6,
+- Express-Handlebars: 6.0.6,
 - Mongoose: 6.7.2,
 - Nodemon: 2.0.20
 - Bootstrap: 5.2.1
